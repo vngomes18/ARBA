@@ -116,46 +116,47 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Mobile menu toggle with animation
-const createMobileMenu = () => {
-    const navbar = document.querySelector('.navbar');
-    const navLinks = document.querySelector('.nav-links');
-    
-    // Create menu button
-    const menuButton = document.createElement('button');
-    menuButton.className = 'mobile-menu-button';
-    menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-    
-    // Add button to navbar
-    navbar.insertBefore(menuButton, navLinks);
-    
-    // Toggle menu on button click
-    menuButton.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuButton.innerHTML = navLinks.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
-            : '<i class="fas fa-bars"></i>';
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-    
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-    });
-};
+// Menu Mobile
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+const body = document.body;
 
-// Initialize mobile menu
-createMobileMenu();
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuBtn.querySelector('i').classList.toggle('fa-bars');
+    menuBtn.querySelector('i').classList.toggle('fa-times');
+    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+});
+
+// Fechar menu ao clicar em um link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.querySelector('i').classList.add('fa-bars');
+        menuBtn.querySelector('i').classList.remove('fa-times');
+        body.style.overflow = '';
+    });
+});
+
+// Fechar menu ao clicar fora
+document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuBtn.querySelector('i').classList.add('fa-bars');
+        menuBtn.querySelector('i').classList.remove('fa-times');
+        body.style.overflow = '';
+    }
+});
+
+// Fechar menu ao redimensionar a janela
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        navLinks.classList.remove('active');
+        menuBtn.querySelector('i').classList.add('fa-bars');
+        menuBtn.querySelector('i').classList.remove('fa-times');
+        body.style.overflow = '';
+    }
+});
 
 // Add hover effect to service cards
 document.querySelectorAll('.servico-card').forEach(card => {
@@ -171,32 +172,4 @@ document.querySelectorAll('.servico-card').forEach(card => {
 // Add loading animation to page
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-});
-
-// Menu Mobile
-const menuBtn = document.querySelector('.menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuBtn.querySelector('i').classList.toggle('fa-bars');
-    menuBtn.querySelector('i').classList.toggle('fa-times');
-});
-
-// Fechar menu ao clicar em um link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuBtn.querySelector('i').classList.add('fa-bars');
-        menuBtn.querySelector('i').classList.remove('fa-times');
-    });
-});
-
-// Fechar menu ao clicar fora
-document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-        navLinks.classList.remove('active');
-        menuBtn.querySelector('i').classList.add('fa-bars');
-        menuBtn.querySelector('i').classList.remove('fa-times');
-    }
 }); 

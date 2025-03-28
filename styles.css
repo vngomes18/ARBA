@@ -534,7 +534,7 @@ footer {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
-/* Estilos do Menu Mobile */
+/* Menu Mobile */
 .menu-btn {
     display: none;
     background: none;
@@ -562,6 +562,7 @@ footer {
         padding: 5rem 2rem;
         transition: 0.3s ease;
         z-index: 999;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
     }
 
     .nav-links.active {
@@ -578,27 +579,33 @@ footer {
 
     .hero {
         padding: 6rem 5% 4rem;
+        min-height: 100vh;
     }
 
     .hero-content {
         text-align: center;
+        padding: 0 1rem;
     }
 
     .hero h1 {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
 
     .hero p {
         font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
 
     .hero-buttons {
         flex-direction: column;
         gap: 1rem;
+        align-items: center;
     }
 
     .hero-buttons .btn {
         width: 100%;
+        max-width: 300px;
     }
 
     .scroll-indicator {
@@ -616,58 +623,71 @@ footer {
 
     .sobre-content {
         text-align: center;
+        padding: 0 1rem;
     }
 
     .sobre-content h2 {
         font-size: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     .sobre-content p {
         font-size: 1rem;
+        line-height: 1.6;
     }
 
     .sobre-image {
         order: -1;
+        padding: 0 1rem;
     }
 
     .sobre-image img {
         width: 100%;
         max-width: 400px;
         margin: 0 auto;
+        border-radius: 10px;
     }
 
     .features-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .feature-item {
         padding: 1.5rem;
+        text-align: center;
     }
 
     .feature-item i {
         font-size: 2rem;
+        margin-bottom: 1rem;
     }
 
     .feature-item h3 {
         font-size: 1.2rem;
+        margin-bottom: 0.5rem;
     }
 
     .feature-item p {
         font-size: 0.9rem;
+        line-height: 1.5;
     }
 
     .stats-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .stat {
         padding: 1.5rem;
+        text-align: center;
     }
 
     .stat h3 {
         font-size: 2rem;
+        margin-bottom: 0.5rem;
     }
 
     .stat p {
@@ -681,22 +701,27 @@ footer {
     .servicos-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 1rem;
     }
 
     .servico-card {
         padding: 2rem;
+        text-align: center;
     }
 
     .servico-card i {
         font-size: 2.5rem;
+        margin-bottom: 1rem;
     }
 
     .servico-card h3 {
         font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
 
     .servico-card p {
         font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .beneficios {
@@ -706,22 +731,27 @@ footer {
     .beneficios-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 1rem;
     }
 
     .beneficio-card {
         padding: 2rem;
+        text-align: center;
     }
 
     .beneficio-card i {
         font-size: 2.5rem;
+        margin-bottom: 1rem;
     }
 
     .beneficio-card h3 {
         font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
 
     .beneficio-card p {
         font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .contato {
@@ -731,6 +761,7 @@ footer {
     .contato-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+        padding: 0 1rem;
     }
 
     .contato-info {
@@ -739,23 +770,35 @@ footer {
 
     .contato-info h2 {
         font-size: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     .contato-info p {
         font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
     }
 
     .contato-form {
         padding: 2rem;
+        background: var(--white);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
     }
 
     .form-group input,
     .form-group textarea {
         padding: 0.8rem;
         font-size: 1rem;
+        width: 100%;
     }
 
     .submit-btn {
+        width: 100%;
         padding: 1rem;
         font-size: 1rem;
     }
@@ -764,10 +807,12 @@ footer {
         flex-direction: column;
         gap: 2rem;
         text-align: center;
+        padding: 2rem 1rem;
     }
 
     .social-links {
         justify-content: center;
+        gap: 1rem;
     }
 
     .whatsapp-button {
@@ -779,5 +824,31 @@ footer {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .sobre-content h2,
+    .contato-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .feature-item i,
+    .servico-card i,
+    .beneficio-card i {
+        font-size: 2rem;
+    }
+
+    .stat h3 {
+        font-size: 1.8rem;
     }
 } 
