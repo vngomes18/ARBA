@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Solar - Arba Solar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Arba Solar</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#beneficios">Benefícios</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="calculadora-container">
+        <div class="calculadora-header">
+            <h1>Calculadora de Economia Solar</h1>
+            <p>Calcule quanto você pode economizar com energia solar</p>
+        </div>
+
+        <div class="calculadora-grid">
+            <div class="calculadora-form">
+                <form id="calculadoraForm">
+                    <div class="form-group">
+                        <label for="consumoMensal">Consumo Mensal de Energia (kWh)</label>
+                        <input type="number" id="consumoMensal" required min="0" step="0.01">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tarifaEnergia">Tarifa de Energia (R$/kWh)</label>
+                        <input type="number" id="tarifaEnergia" required min="0" step="0.01" value="0.75">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="potenciaSistema">Potência do Sistema Solar (kWp)</label>
+                        <input type="number" id="potenciaSistema" required min="0" step="0.01">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horasSol">Média de Horas de Sol por Dia</label>
+                        <select id="horasSol" required>
+                            <option value="4">4 horas (Regiões com menos insolação)</option>
+                            <option value="5" selected>5 horas (Média nacional)</option>
+                            <option value="6">6 horas (Regiões com mais insolação)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="custoInstalacao">Custo de Instalação (R$)</label>
+                        <input type="number" id="custoInstalacao" required min="0" step="0.01">
+                    </div>
+
+                    <button type="submit" class="calcular-button">
+                        <i class="fas fa-calculator"></i>
+                        Calcular Economia
+                    </button>
+                </form>
+            </div>
+
+            <div class="resultados-container">
+                <div class="resultado-card" id="resultadoEconomia">
+                    <div class="card-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Economia Mensal</h3>
+                    <p class="valor">R$ 0,00</p>
+                </div>
+
+                <div class="resultado-card" id="resultadoProducao">
+                    <div class="card-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Produção Mensal</h3>
+                    <p class="valor">0 kWh</p>
+                </div>
+
+                <div class="resultado-card" id="resultadoPayback">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Tempo de Retorno</h3>
+                    <p class="valor">0 meses</p>
+                </div>
+
+                <div class="resultado-card" id="resultadoCO2">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Redução de CO2</h3>
+                    <p class="valor">0 kg/mês</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Como funciona o cálculo?</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Consumo de Energia</h3>
+                    <p>Baseado no seu consumo mensal atual de energia elétrica</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-sun"></i>
+                    <h3>Produção Solar</h3>
+                    <p>Calculada com base na potência do sistema e horas de sol</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-coins"></i>
+                    <h3>Economia</h3>
+                    <p>Valor economizado com a geração de energia solar</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Retorno</h3>
+                    <p>Tempo estimado para recuperar o investimento</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Arba Solar</h3>
+                <p>Transformando energia em economia</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Arba Solar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="whatsapp-button">
+        <a href="https://wa.me/5511999999999" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="calculadora.js"></script>
+</body>
+</html> 
