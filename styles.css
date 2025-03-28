@@ -79,22 +79,24 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    padding: 0 1rem;
+    padding: 8rem 5% 4rem;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--white);
+    z-index: 1;
 }
 
 .hero-content h1 {
@@ -532,58 +534,245 @@ footer {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
-/* Responsividade */
+/* Estilos do Menu Mobile */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1000;
+}
+
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
+    .menu-btn {
+        display: block;
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
         background: var(--secondary-color);
-        padding: 1rem;
         flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+        padding: 5rem 2rem;
+        transition: 0.3s ease;
+        z-index: 999;
     }
 
     .nav-links.active {
-        display: flex;
+        right: 0;
     }
 
-    .mobile-menu-button {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--white);
-        font-size: 1.5rem;
-        cursor: pointer;
+    .nav-links li {
+        margin: 1.5rem 0;
     }
 
-    .hero-content h1 {
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+
+    .hero {
+        padding: 6rem 5% 4rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero h1 {
         font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
     }
 
     .hero-buttons {
         flex-direction: column;
+        gap: 1rem;
     }
 
-    .sobre-content,
-    .contato-container {
-        grid-template-columns: 1fr;
+    .hero-buttons .btn {
+        width: 100%;
     }
 
-    .sobre-stats {
+    .scroll-indicator {
+        display: none;
+    }
+
+    .sobre {
+        padding: 4rem 5%;
+    }
+
+    .sobre-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .sobre-content {
+        text-align: center;
+    }
+
+    .sobre-content h2 {
+        font-size: 2rem;
+    }
+
+    .sobre-content p {
+        font-size: 1rem;
+    }
+
+    .sobre-image {
+        order: -1;
+    }
+
+    .sobre-image img {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-item {
+        padding: 1.5rem;
+    }
+
+    .feature-item i {
+        font-size: 2rem;
+    }
+
+    .feature-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-item p {
+        font-size: 0.9rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat {
+        padding: 1.5rem;
+    }
+
+    .stat h3 {
+        font-size: 2rem;
+    }
+
+    .stat p {
+        font-size: 1rem;
+    }
+
+    .servicos {
+        padding: 4rem 5%;
+    }
+
+    .servicos-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .servico-card {
+        padding: 2rem;
+    }
+
+    .servico-card i {
+        font-size: 2.5rem;
+    }
+
+    .servico-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .servico-card p {
+        font-size: 0.95rem;
+    }
+
+    .beneficios {
+        padding: 4rem 5%;
+    }
+
+    .beneficios-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .beneficio-card {
+        padding: 2rem;
+    }
+
+    .beneficio-card i {
+        font-size: 2.5rem;
+    }
+
+    .beneficio-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .beneficio-card p {
+        font-size: 0.95rem;
+    }
+
+    .contato {
+        padding: 4rem 5%;
+    }
+
+    .contato-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contato-info {
+        text-align: center;
+    }
+
+    .contato-info h2 {
+        font-size: 2rem;
+    }
+
+    .contato-info p {
+        font-size: 1rem;
+    }
+
+    .contato-form {
+        padding: 2rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .submit-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 
     .whatsapp-button {
-        bottom: 1rem;
         right: 1rem;
+        bottom: 1rem;
     }
 
     .whatsapp-button a {
